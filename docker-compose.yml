@@ -14,3 +14,13 @@ services:
       - DATABASE_HOST=localhost
     volumes:
       - ./docker/db/init:/docker-entrypoint-initdb.d
+  app:
+    container_name: node
+    build: ./front
+    ports:
+      - 9050:9050
+    volumes:
+      - ./front:/usr/src/app
+    stdin_open: true
+    tty: true
+    command: /bin/sh
