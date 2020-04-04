@@ -1,1 +1,1 @@
-SELECT * FROM calendar.schedule;
+SELECT * FROM schedule;

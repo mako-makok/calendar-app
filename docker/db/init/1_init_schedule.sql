@@ -1,12 +1,10 @@
-CREATE SCHEMA calendar;
-
-CREATE TABLE IF NOT EXISTS calendar.users
+CREATE TABLE IF NOT EXISTS users
 (
     id serial,
     PRIMARY KEY (id)
 );
 
-CREATE TABLE IF NOT EXISTS calendar.schedule
+CREATE TABLE IF NOT EXISTS schedule
 (
     id serial,
     user_id INTEGER NOT NULL,
@@ -17,5 +15,5 @@ CREATE TABLE IF NOT EXISTS calendar.schedule
     PRIMARY KEY (id)
 );
  
-INSERT INTO calendar.users VALUES (0);
-INSERT INTO calendar.schedule VALUES (0, 0, 'hoge', 'figa', '2020-02-11', '2020-02-12');
+INSERT INTO users VALUES (0);
+INSERT INTO schedule VALUES (0, 0, 'hoge', 'fuga', '2020-02-11', '2020-02-12');

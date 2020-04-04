@@ -1,1 +1,1 @@
-SELECT * FROM calendar.users;
+SELECT * FROM users;
