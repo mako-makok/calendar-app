@@ -1,7 +1,7 @@
-package com.calendar.calendar.service
+package com.calendar.service
 
-import com.calendar.calendar.entity.User
-import com.calendar.calendar.repository.UserDao
+import com.calendar.dao.UserDao
+import com.calendar.entity.User
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 

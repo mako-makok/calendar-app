@@ -1,4 +1,4 @@
-package com.calendar.calendar.entity
+package com.calendar.entity
 
 import org.seasar.doma.*
 import org.seasar.doma.jdbc.entity.NamingType

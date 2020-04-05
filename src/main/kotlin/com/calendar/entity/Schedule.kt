@@ -1,16 +1,16 @@
-package com.calendar.calendar.entity
+package com.calendar.entity
 
 import org.seasar.doma.*
 import org.seasar.doma.jdbc.entity.NamingType
-import java.util.*
+import java.util.Date
 
 @Entity(immutable = true, naming = NamingType.LENIENT_SNAKE_LOWER_CASE)
 @Table(name = "schedule")
 data class Schedule(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Integer,
-    val userId: Integer,
+    val id: Int? = null,
+    val userId: Int,
     val title: String,
     val description: String,
     val dateStart: Date,
