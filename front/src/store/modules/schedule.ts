@@ -1,5 +1,5 @@
-import { Mutation, Action, VuexModule, getModule, Module } from 'vuex-module-decorators';
-import store from '@/store';
+import { Mutation, Action, VuexModule, getModule, Module } from 'vuex-module-decorators'
+import store from '@/store'
 
 export interface ScheduleState {
   date: Date;
@@ -11,18 +11,18 @@ class Schedule extends VuexModule implements ScheduleState {
 
   @Mutation
   private SET_DATE(date: Date) {
-    this.date = date;
+    this.date = date
   }
 
   @Action({})
   public incrementMonth() {
-    this.SET_DATE(new Date(this.date.getFullYear(), this.date.getMonth() + 1));
+    this.SET_DATE(new Date(this.date.getFullYear(), this.date.getMonth() + 1))
   }
 
   @Action({})
   public decrementMonth() {
-    this.SET_DATE(new Date(this.date.getFullYear(), this.date.getMonth() - 1));
+    this.SET_DATE(new Date(this.date.getFullYear(), this.date.getMonth() - 1))
   }
 }
 
-export const ScheduleModule = getModule(Schedule);
+export const ScheduleModule = getModule(Schedule)

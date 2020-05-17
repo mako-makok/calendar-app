@@ -13,8 +13,8 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component } from 'vue-property-decorator';
-import CardForDay from '@/components/Calendar/CardForDay.vue';
+import { Vue, Component } from 'vue-property-decorator'
+import CardForDay from '@/components/Calendar/CardForDay.vue'
 
 @Component({
   components: {

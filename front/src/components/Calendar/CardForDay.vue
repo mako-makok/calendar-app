@@ -5,8 +5,7 @@
     height="175"
     width="150%"
     tile
-    outlined
-  >
+    outlined>
     <div style="text-align: center;">hoge</div>
 </v-card>
 </template>

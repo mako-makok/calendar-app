@@ -5,8 +5,8 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop } from 'vue-property-decorator';
-import { ScheduleModule } from '@/store/modules/schedule';
+import { Vue, Component } from 'vue-property-decorator'
+import { ScheduleModule } from '@/store/modules/schedule'
 
 @Component
 export default class TextYearAndMonth extends Vue {

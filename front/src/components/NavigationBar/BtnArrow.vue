@@ -6,8 +6,8 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop } from 'vue-property-decorator';
-import { ScheduleModule } from '@/store/modules/schedule';
+import { Vue, Component, Prop } from 'vue-property-decorator'
+import { ScheduleModule } from '@/store/modules/schedule'
 
 @Component
 export default class BtnArrowLeft extends Vue {
@@ -15,7 +15,7 @@ export default class BtnArrowLeft extends Vue {
   public isNext?: boolean;
 
   changeMonth() {
-    this.isNext? ScheduleModule.incrementMonth(): ScheduleModule.decrementMonth();
+    this.isNext? ScheduleModule.incrementMonth(): ScheduleModule.decrementMonth()
   }
   
 }
