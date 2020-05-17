@@ -1,30 +1,17 @@
 <template>
   <div>
-    {{ yearAndMonth }}
+    {{ `${getDate().getFullYear()}年${getDate().getMonth() + 1}月` }}
   </div>
 </template>
 
 <script lang="ts">
 import { Vue, Component, Prop } from 'vue-property-decorator';
+import { ScheduleModule } from '@/store/modules/schedule';
 
 @Component
 export default class TextYearAndMonth extends Vue {
-  @Prop({
-    default: () => {
-      const now = new Date();
-      return now.getFullYear();
-    }
-  })
-  public year?: number;
-
-  @Prop({
-    default: () => {
-      const now = new Date();
-      return now.getMonth() + 1;
-    }
-  })
-  public month?: number;
-
-  public yearAndMonth = `${this.year}年${this.month}月`;
+  getDate() {
+    return ScheduleModule.date
+  } 
 }
 </script>

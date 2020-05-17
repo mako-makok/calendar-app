@@ -6,8 +6,8 @@
       <v-app-bar-nav-icon></v-app-bar-nav-icon>
       <v-icon>calendar_today</v-icon>
       <v-toolbar-title>Calendar</v-toolbar-title>
-      <BtnAllow :isLeft=true></BtnAllow>
-      <BtnAllow :isLeft=false></BtnAllow>
+      <BtnAllow :isNext=false></BtnAllow>
+      <BtnAllow :isNext=true></BtnAllow>
       <div>
         <TextYearAndMonth></TextYearAndMonth>
       </div>
