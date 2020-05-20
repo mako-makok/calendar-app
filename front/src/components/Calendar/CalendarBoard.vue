@@ -4,7 +4,7 @@
       <v-row no-gutters :key="i">
         <template v-for="n in 7">
           <v-col :key="n">
-            <CardForDay></CardForDay>
+            <CardForDay />
           </v-col>
         </template>
       </v-row>

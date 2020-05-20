@@ -1,13 +1,13 @@
 <template>
   <div>
     <v-app-bar dense>
-      <v-app-bar-nav-icon></v-app-bar-nav-icon>
+      <v-app-bar-nav-icon />
       <v-icon>calendar_today</v-icon>
       <v-toolbar-title>Calendar</v-toolbar-title>
-      <BtnAllow :isNext=false></BtnAllow>
-      <BtnAllow :isNext=true></BtnAllow>
+      <BtnAllow :is-next="false" />
+      <BtnAllow :is-next="true" />
       <div>
-        <TextYearAndMonth></TextYearAndMonth>
+        <TextYearAndMonth />
       </div>
     </v-app-bar>
   </div>

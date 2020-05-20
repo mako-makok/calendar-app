@@ -1,8 +1,12 @@
 <template>
-    <v-btn tile large color="teal" icon @click="changeMonth"> 
-      <v-icon v-if="isNext">keyboard_arrow_right</v-icon>
-      <v-icon v-if="!isNext">keyboard_arrow_left</v-icon>
-    </v-btn>
+  <v-btn tile large color="teal" icon @click="changeMonth"> 
+    <v-icon v-if="isNext">
+      keyboard_arrow_right
+    </v-icon>
+    <v-icon v-if="!isNext">
+      keyboard_arrow_left
+    </v-icon>
+  </v-btn>
 </template>
 
 <script lang="ts">
@@ -15,8 +19,9 @@ export default class BtnArrowLeft extends Vue {
   public isNext?: boolean;
 
   changeMonth() {
-    this.isNext? ScheduleModule.incrementMonth(): ScheduleModule.decrementMonth()
+    this.isNext
+      ? ScheduleModule.incrementMonth()
+      : ScheduleModule.decrementMonth()
   }
-  
 }
 </script>
