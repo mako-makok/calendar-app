@@ -1,5 +1,5 @@
 <template>
-  <v-btn tile large color="teal" icon @click="changeMonth"> 
+  <v-btn tile large color="teal" icon @click="changeMonth">
     <v-icon v-if="isNext">
       keyboard_arrow_right
     </v-icon>
@@ -16,7 +16,7 @@ import { ScheduleModule } from '@/store/modules/schedule'
 @Component
 export default class BtnArrowLeft extends Vue {
   @Prop()
-  public isNext?: boolean;
+  public isNext?: boolean
 
   changeMonth() {
     this.isNext
