@@ -11,7 +11,7 @@ import { ScheduleModule } from '@/store/modules/schedule'
 @Component
 export default class TextYearAndMonth extends Vue {
   getDate() {
-    return ScheduleModule.date
+    return ScheduleModule.currentDate
   } 
 }
 </script>

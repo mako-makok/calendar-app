@@ -2,26 +2,26 @@ import { Mutation, Action, VuexModule, getModule, Module } from 'vuex-module-dec
 import store from '@/store'
 
 export interface ScheduleState {
-  date: Date;
+  currentDate: Date;
 }
 
 @Module({ dynamic: true, store, name: 'schedule' })
 class Schedule extends VuexModule implements ScheduleState {
-  public date = new Date();
+  public currentDate = new Date();
 
   @Mutation
   private SET_DATE(date: Date) {
-    this.date = date
+    this.currentDate = date
   }
 
   @Action({})
   public incrementMonth() {
-    this.SET_DATE(new Date(this.date.getFullYear(), this.date.getMonth() + 1))
+    this.SET_DATE(new Date(this.currentDate.getFullYear(), this.currentDate.getMonth() + 1))
   }
 
   @Action({})
   public decrementMonth() {
-    this.SET_DATE(new Date(this.date.getFullYear(), this.date.getMonth() - 1))
+    this.SET_DATE(new Date(this.currentDate.getFullYear(), this.currentDate.getMonth() - 1))
   }
 }
 
