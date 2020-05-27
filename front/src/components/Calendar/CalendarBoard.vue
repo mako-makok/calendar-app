@@ -33,14 +33,14 @@ export default class CalendarBoard extends Vue {
     )
     const day = beginOfMonth.getDay()
     const dates: number[] = []
+    const endOfLastMonth = new Date(
+      currentDate.getFullYear(),
+      currentDate.getMonth(),
+      0
+    )
 
     // 月初が月曜日の場合は、先月分の日付を取得しない
     if (day > 1) {
-      const endOfLastMonth = new Date(
-        currentDate.getFullYear(),
-        currentDate.getMonth(),
-        0
-      )
       for (let i = endOfLastMonth.getDay() - 1; i >= 0; i--) {
         dates.push(endOfLastMonth.getDate() - i)
       }
@@ -48,12 +48,8 @@ export default class CalendarBoard extends Vue {
 
     // 月初が日曜の場合は先月の月曜から土曜を加える
     if (day === 0) {
-      const endOfLastMonthForDate = new Date(
-        currentDate.getFullYear(),
-        currentDate.getMonth(),
-        0
-      ).getDate()
-      for (let i = endOfLastMonthForDate - 5; i <= endOfLastMonthForDate; i++) {
+      const date = endOfLastMonth.getDate()
+      for (let i = date - 5; i <= date; i++) {
         dates.push(i)
       }
     }
