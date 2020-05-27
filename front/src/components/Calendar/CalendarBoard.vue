@@ -4,7 +4,7 @@
       <v-row no-gutters :key="i">
         <template v-for="j in 7">
           <v-col :key="j">
-            <CardForDay :date="dispDates[((i - 1) * 7 + j) - 1]" />
+            <CardForDay :date="dispDates[(i - 1) * 7 + j - 1]" />
           </v-col>
         </template>
       </v-row>
