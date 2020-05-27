@@ -7,14 +7,17 @@
     tile
     outlined>
     <div style="text-align: center;">
-      hoge
+      {{ date }}
     </div>
   </v-card>
 </template>
 
 <script lang="ts">
-import { Vue, Component } from 'vue-property-decorator'
+import { Vue, Component, Prop } from 'vue-property-decorator'
 
 @Component
-export default class CardForDay extends Vue {}
+export default class CardForDay extends Vue {
+  @Prop()
+  public date?: Date
+}
 </script>

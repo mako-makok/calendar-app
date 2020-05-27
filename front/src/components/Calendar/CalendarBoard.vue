@@ -1,10 +1,10 @@
 <template>
   <v-container>
-    <template v-for="i in 5">
+    <template v-for="i in dispDates.length / 7">
       <v-row no-gutters :key="i">
-        <template v-for="n in 7">
-          <v-col :key="n">
-            <CardForDay />
+        <template v-for="j in 7">
+          <v-col :key="j">
+            <CardForDay :date="dispDates[((i - 1) * 7 + j) - 1]" />
           </v-col>
         </template>
       </v-row>
