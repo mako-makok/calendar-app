@@ -4,7 +4,9 @@
       <v-row no-gutters :key="i">
         <template v-for="j in 7">
           <v-col :key="j">
-            <CardForDay :date="dispDates[(i - 1) * 7 + j - 1]" />
+            <CardForDay
+              :date="dispDates[(i - 1) * 7 + j - 1]"
+              :day="days[j - 1]" />
           </v-col>
         </template>
       </v-row>
@@ -23,6 +25,8 @@ import { ScheduleModule } from '@/store/modules/schedule'
   }
 })
 export default class CalendarBoard extends Vue {
+  private days = ['日', '月', '火', '水', '木', '金', '土']
+
   get dispDates(): number[] {
     const currentDate = ScheduleModule.currentDate
 

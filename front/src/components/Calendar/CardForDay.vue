@@ -7,6 +7,9 @@
     tile
     outlined>
     <div style="text-align: center;">
+      {{ day }}
+    </div>
+    <div style="text-align: center;">
       {{ date }}
     </div>
   </v-card>
@@ -19,5 +22,8 @@ import { Vue, Component, Prop } from 'vue-property-decorator'
 export default class CardForDay extends Vue {
   @Prop()
   public date?: Date
+
+  @Prop()
+  public day!: string
 }
 </script>
