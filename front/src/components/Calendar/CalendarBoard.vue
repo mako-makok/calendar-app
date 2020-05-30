@@ -6,7 +6,8 @@
           <v-col :key="j">
             <CardForDay
               :date="dispDates[(i - 1) * 7 + j - 1]"
-              :day="days[j - 1]" />
+              :day="days[j - 1]"
+            />
           </v-col>
         </template>
       </v-row>
