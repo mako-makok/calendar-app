@@ -14,6 +14,14 @@ module.exports = {
     ecmaVersion: 2020
   },
   rules: {
+    'prettier/prettier': [
+      'error',
+      {
+        printWidth: 100,
+        tabWidth: 2,
+        singleQuote: true
+      }
+    ],
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off'
   }
