@@ -5,7 +5,9 @@
     height="175"
     width="150%"
     tile
-    outlined>
+    outlined
+    @click="startRegistration"
+  >
     <div style="text-align: center;">
       {{ day }}
     </div>
@@ -16,7 +18,7 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop } from 'vue-property-decorator'
+import { Vue, Component, Prop, Emit } from 'vue-property-decorator'
 
 @Component
 export default class CardForDay extends Vue {
@@ -25,5 +27,10 @@ export default class CardForDay extends Vue {
 
   @Prop()
   public day!: string
+
+  @Emit()
+  startRegistration() {
+    return this.date
+  }
 }
 </script>

@@ -1,48 +1,56 @@
 <template>
-  <v-container>
-    <template v-for="i in dispDates.length / 7">
-      <v-row no-gutters :key="i">
-        <template v-for="j in 7">
-          <v-col :key="j">
-            <CardForDay
-              :date="dispDates[(i - 1) * 7 + j - 1]"
-              :day="days[j - 1]"
-            />
-          </v-col>
-        </template>
-      </v-row>
-    </template>
-  </v-container>
+  <div>
+    <v-container>
+      <template v-for="i in dispDates.length / 7">
+        <v-row no-gutters :key="i">
+          <template v-for="j in 7">
+            <v-col :key="j">
+              <CardForDay
+                :date="dispDates[(i - 1) * 7 + j - 1]"
+                :day="days[j - 1]"
+                @start-registration="openDialog($event)"
+              />
+            </v-col>
+          </template>
+        </v-row>
+      </template>
+    </v-container>
+    <DialogRegisterSchedule ref="dialogRegisterSchedule" />
+  </div>
 </template>
 
 <script lang="ts">
-import { Vue, Component } from 'vue-property-decorator'
+import { Vue, Component, Ref } from 'vue-property-decorator'
 import CardForDay from '@/components/Calendar/CardForDay.vue'
+import DialogRegisterSchedule from '@/components/AddSchedule/DialogRegisterSchedule.vue'
 import { ScheduleModule } from '@/store/modules/schedule'
 
 @Component({
   components: {
-    CardForDay
+    CardForDay,
+    DialogRegisterSchedule
   }
 })
 export default class CalendarBoard extends Vue {
   private days = ['日', '月', '火', '水', '木', '金', '土']
 
+  @Ref() dialogRegisterSchedule!: DialogRegisterSchedule
+
+  private openDialog(date: number) {
+    this.dialogRegisterSchedule.open(
+      ScheduleModule.currentDate.getFullYear(),
+      ScheduleModule.currentDate.getMonth(),
+      date
+    )
+  }
+
   get dispDates(): number[] {
     const currentDate = ScheduleModule.currentDate
 
-    const beginOfMonth = new Date(
-      currentDate.getFullYear(),
-      currentDate.getMonth(),
-      1
-    )
+    const beginOfMonth = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1)
     const day = beginOfMonth.getDay()
     const dates: number[] = []
-    const endOfLastMonth = new Date(
-      currentDate.getFullYear(),
-      currentDate.getMonth(),
-      0
-    )
+    const endOfLastMonth = new Date(currentDate.getFullYear(), currentDate.getMonth(), 0)
 
     // 月初が月曜日の場合は、先月分の日付を取得しない
     if (day > 1) {
@@ -59,11 +67,7 @@ export default class CalendarBoard extends Vue {
       }
     }
 
-    const endOfMonth = new Date(
-      currentDate.getFullYear(),
-      currentDate.getMonth() + 1,
-      0
-    )
+    const endOfMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0)
     for (let i = beginOfMonth.getDate(); i <= endOfMonth.getDate(); i++) {
       dates.push(i)
     }
