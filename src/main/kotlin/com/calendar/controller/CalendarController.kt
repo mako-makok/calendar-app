@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
 import org.springframework.validation.annotation.Validated
 import org.springframework.web.bind.annotation.*
+import java.time.LocalDate
 
 @RestController
 @RequestMapping("calendar")
@@ -27,8 +28,8 @@ class CalendarController {
                 userId = 1,
                 title = scheduleParam.title,
                 description = scheduleParam.description,
-                dateStart = scheduleParam.dateStart,
-                dateEnd = scheduleParam.dateEnd
+                dateStart = LocalDate.now(),
+                dateEnd = LocalDate.now()
         )
 
         return scheduleService.insert(entity)

@@ -1,10 +1,10 @@
 package com.calendar.controller.param
 
-import java.util.Date
+import java.time.LocalDate
 
 data class ScheduleParam(
     val title: String,
     val description: String,
-    val dateStart: Date,
-    val dateEnd: Date
+    val dateStart: LocalDate,
+    val dateEnd: LocalDate
 )
