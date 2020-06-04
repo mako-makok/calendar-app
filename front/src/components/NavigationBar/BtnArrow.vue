@@ -19,9 +19,7 @@ export default class BtnArrowLeft extends Vue {
   public isNext?: boolean
 
   changeMonth() {
-    this.isNext
-      ? ScheduleModule.incrementMonth()
-      : ScheduleModule.decrementMonth()
+    this.isNext ? ScheduleModule.incrementMonth() : ScheduleModule.decrementMonth()
   }
 }
 </script>
