@@ -16,14 +16,12 @@ class Schedule extends VuexModule implements ScheduleState {
 
   @Action({})
   public incrementMonth() {
-    this.SET_DATE(new Date(this.currentDate.getFullYear(),
-      this.currentDate.getMonth() + 1))
+    this.SET_DATE(new Date(this.currentDate.getFullYear(), this.currentDate.getMonth() + 1))
   }
 
   @Action({})
   public decrementMonth() {
-    this.SET_DATE(new Date(this.currentDate.getFullYear(),
-      this.currentDate.getMonth() - 1))
+    this.SET_DATE(new Date(this.currentDate.getFullYear(), this.currentDate.getMonth() - 1))
   }
 }
 
