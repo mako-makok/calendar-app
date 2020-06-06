@@ -23,4 +23,4 @@ services:
       - ./front:/usr/src/app
     stdin_open: true
     tty: true
-    command: /bin/sh
+    command: ["npm", "run", "serve"]
