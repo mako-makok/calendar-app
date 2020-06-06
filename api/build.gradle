@@ -21,18 +21,23 @@ apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 
-version = '0.0.1-SNAPSHOT'
-sourceCompatibility = 1.8
+jar {
+    archiveBaseName = "calendar-api"
+    archiveFileName = "${archiveBaseName}.jar"
+    version = "1.0.0-SNAPSHOT"
+}
+
+sourceCompatibility = 11
 compileKotlin {
     kotlinOptions {
         freeCompilerArgs = ["-Xjsr305=strict"]
-        jvmTarget = "1.8"
+        jvmTarget = "11"
     }
 }
 compileTestKotlin {
     kotlinOptions {
         freeCompilerArgs = ["-Xjsr305=strict"]
-        jvmTarget = "1.8"
+        jvmTarget = "11"
     }
 }
 

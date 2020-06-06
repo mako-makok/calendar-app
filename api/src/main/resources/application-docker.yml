@@ -1,0 +1,11 @@
+spring:
+  profiles:
+    docker
+  datasource:
+    url: jdbc:postgresql://db:5432/calendar_app
+    username: postgres
+    password: postgres
+    name: calendar
+    driver-class-name: org.postgresql.Driver
+doma:
+  dialect: postgres
