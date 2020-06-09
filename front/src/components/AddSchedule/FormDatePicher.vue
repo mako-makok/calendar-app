@@ -10,7 +10,7 @@
     <template v-slot:activator="{ on }">
       <v-text-field
         class="date-text-field"
-        v-model="dateFormated"
+        v-model="formatedDate"
         @blur="date = parseDate(dateFormated)"
         readonly
         v-on="on"
@@ -53,8 +53,8 @@ export default class FormDatePiicker extends Vue {
     return `${year}-${month}-${day}`
   }
 
-  private get dateFormated() {
-    return this.formatDate(this.date)
+  private get formatedDate() {
+    return this.formatDate(this.propDate)
   }
 }
 </script>
