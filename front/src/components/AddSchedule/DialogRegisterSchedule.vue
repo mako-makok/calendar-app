@@ -80,7 +80,7 @@ export default class DialogRegisterSchedule extends Vue {
   private endDate = new Date()
   private startTime = `${this.startDate.getHours()}:${this.startDate.getMinutes()}`
   private endTime = `${this.startDate.getHours()}:${this.startDate.getMinutes() + 15}`
-  private discription = ''
+  private description = ''
   private useTime = false
   private times = [...Array(96).keys()].map(
     i => `${('00' + Math.floor((i + 1) / 4)).slice(-2)}:${('00' + (((i + 1) * 15) % 60)).slice(-2)}`
