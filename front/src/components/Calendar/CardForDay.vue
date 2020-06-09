@@ -23,14 +23,14 @@ import { Vue, Component, Prop, Emit } from 'vue-property-decorator'
 @Component
 export default class CardForDay extends Vue {
   @Prop()
-  public date?: Date
+  public date!: number
 
   @Prop()
   public day!: string
 
   @Emit()
   startRegistration() {
-    return this.date
+    return this.date + 1
   }
 }
 </script>
