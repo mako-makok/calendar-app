@@ -20,10 +20,12 @@ service.interceptors.request.use(
 service.interceptors.response.use(
   response => {
     const res = response.data
+    // if (res.code !== 200) return Promise.reject(new Error(res.message || 'Error'))
+
     return res
   },
   error => {
-    console.log(error)
+    return Promise.reject(error)
   }
 )
 

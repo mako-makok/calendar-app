@@ -1,4 +1,6 @@
 import request from '@/util/request'
+import { Schedules } from '@/types/schedule.type'
+import { AxiosPromise } from 'axios'
 
 enum METHOD {
   GET = 'get',
@@ -15,12 +17,11 @@ export const registSchedule = (params: any) => {
   })
 }
 
-export const getSchedule = () => {
-  return request({
+export const getSchedule = () =>
+  request({
     url: 'calendar',
     method: METHOD.GET
-  })
-}
+  }) as AxiosPromise<Schedules>
 
 export interface ScheduleParam {
   title: string

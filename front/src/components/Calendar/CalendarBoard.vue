@@ -23,7 +23,7 @@
 import { Vue, Component, Ref } from 'vue-property-decorator'
 import CardForDay from '@/components/Calendar/CardForDay.vue'
 import DialogRegisterSchedule from '@/components/AddSchedule/DialogRegisterSchedule.vue'
-import { ScheduleModule } from '@/store/modules/schedule'
+import { CalendarModule } from '@/store/modules/calendar'
 
 @Component({
   components: {
@@ -38,14 +38,14 @@ export default class CalendarBoard extends Vue {
 
   private openDialog(date: number) {
     this.dialogRegisterSchedule.open(
-      ScheduleModule.currentDate.getFullYear(),
-      ScheduleModule.currentDate.getMonth(),
+      CalendarModule.currentDate.getFullYear(),
+      CalendarModule.currentDate.getMonth(),
       date
     )
   }
 
   get dispDates(): number[] {
-    const currentDate = ScheduleModule.currentDate
+    const currentDate = CalendarModule.currentDate
 
     const beginOfMonth = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1)
     const day = beginOfMonth.getDay()
@@ -80,6 +80,11 @@ export default class CalendarBoard extends Vue {
     }
 
     return dates
+  }
+
+  private created() {
+    CalendarModule.getAllSchedule()
+    // console.log(CalendarModule.schedules[1])
   }
 }
 </script>
