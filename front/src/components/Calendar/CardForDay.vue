@@ -1,7 +1,15 @@
 <template>
   <v-dialog v-model="dialog" max-width="600px">
     <template #activator="{ on }">
-      <v-card class="pa-2" max-width="250" height="175" width="150%" tile outlined>
+      <v-card
+        class="pa-2"
+        max-width="250"
+        height="175"
+        width="150%"
+        tile
+        outlined
+        @click="openDialog"
+      >
         <div style="text-align: center;">
           {{ day }}
         </div>
@@ -12,7 +20,7 @@
           v-for="schedule in currentDateSchedules"
           :key="schedule.title"
           v-on="on"
-          @click="updateClickedSchedule(schedule)"
+          @click="viewSchedule(schedule)"
         >
           <v-alert dense color="#2196f3" height="20%">
             <span style="font-size: small;">
@@ -38,8 +46,8 @@ import { Schedule } from '@/types/schedule.type'
   }
 })
 export default class CardForDay extends Vue {
-  @Prop() public date!: number[]
-  @Prop() public day!: string
+  @Prop() date!: number[]
+  @Prop() day!: string
   private dialog = false
   private schedule: Schedule = { title: '', description: '', dateStart: [], dateEnd: [] }
 
@@ -61,8 +69,14 @@ export default class CardForDay extends Vue {
     this.dialog = false
   }
 
-  private updateClickedSchedule(schedule: Schedule) {
+  private viewSchedule(schedule: Schedule) {
     this.schedule = schedule
+    this.dialog = true
+  }
+
+  private openDialog() {
+    this.schedule = { title: '', description: '', dateStart: [], dateEnd: [] }
+    this.dialog = true
   }
 }
 </script>

@@ -8,7 +8,7 @@
     min-width="290px"
   >
     <template v-slot:activator="{ on }">
-      <v-text-field class="date-text-field" v-model="date" readonly v-on="on" />
+      <v-text-field class="date-text-field" v-model="date" v-on="on" />
     </template>
     <v-date-picker
       v-model="date"
@@ -26,8 +26,8 @@ import { Vue, Component, Prop } from 'vue-property-decorator'
 
 @Component
 export default class FormDatePiicker extends Vue {
-  @Prop({ required: true })
-  private propDate!: number[]
+  @Prop({ required: true }) private propDate!: number[]
+  @Prop({ default: false }) isReadOnly!: boolean
   private date = this.propDate.join('-')
   private menu = false
 }

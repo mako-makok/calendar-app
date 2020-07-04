@@ -61,7 +61,7 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop, Emit } from 'vue-property-decorator'
+import { Vue, Component, Prop, Emit, Watch } from 'vue-property-decorator'
 import FormDatePicher from '@/components/Calendar/AddSchedule/FormDatePicher.vue'
 import { Schedule } from '@/types/schedule.type'
 
@@ -81,16 +81,21 @@ export default class FormSchedule extends Vue {
     i => `${('00' + Math.floor((i + 1) / 4)).slice(-2)}:${('00' + (((i + 1) * 15) % 60)).slice(-2)}`
   )
 
-  private setupUseTime() {
-    const now = new Date()
-    this.timeStart = `${now.getHours()}:${now.getMinutes()}`
-    this.timeEnd = `${now.getHours()}:${now.getMinutes()}`
-    this.useTime = true
+  @Watch('propSchedule')
+  private resetScchedule() {
+    this.schedule = this.propSchedule
   }
 
   @Emit()
   private clickedRegister() {
     this.useTime = false
+  }
+
+  private setupUseTime() {
+    const now = new Date()
+    this.timeStart = `${now.getHours()}:${now.getMinutes()}`
+    this.timeEnd = `${now.getHours()}:${now.getMinutes()}`
+    this.useTime = true
   }
 }
 </script>
