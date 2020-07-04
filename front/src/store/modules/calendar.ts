@@ -3,17 +3,17 @@ import store from '@/store'
 import { getSchedule } from '@/api/schedules'
 import { CalendarState, Schedule } from '@/types/schedule.type'
 
-@Module({ dynamic: true, store, name: 'schedule', namespaced: true })
+@Module({ dynamic: true, store, name: 'calendar', namespaced: true })
 class Calendar extends VuexModule implements CalendarState {
   public currentDate = new Date()
   public schedules: Schedule[] = []
 
-  @Action({})
+  @Action
   public incrementMonth() {
     this.SET_DATE(new Date(this.currentDate.getFullYear(), this.currentDate.getMonth() + 1))
   }
 
-  @Action({})
+  @Action
   public decrementMonth() {
     this.SET_DATE(new Date(this.currentDate.getFullYear(), this.currentDate.getMonth() - 1))
   }
@@ -21,9 +21,7 @@ class Calendar extends VuexModule implements CalendarState {
   @Action({ rawError: true })
   public async getAllSchedule() {
     await getSchedule().then(res => {
-      console.log(res.data)
-      const hoge: any = res
-      this.SET_SCHEDULES(hoge.schedules)
+      this.SET_SCHEDULES(res.data.schedules)
     })
   }
 
