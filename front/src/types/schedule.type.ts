@@ -11,5 +11,5 @@ export interface Schedule {
   title: string
   description: string
   dateStart: number[]
-  dateEnd: Date
+  dateEnd: number[]
 }

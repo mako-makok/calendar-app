@@ -5,7 +5,7 @@
         <v-row no-gutters>
           <v-col />
           <v-col :cols="11">
-            <v-text-field placeholder="タイトルと日時を追加" />
+            <v-text-field v-model="schedule.title" placeholder="タイトルと日時を追加" />
           </v-col>
         </v-row>
         <v-row justify="end" dense>
@@ -44,7 +44,7 @@
             </v-icon>
           </v-col>
           <v-col :cols="11">
-            <v-text-field placeholder="説明を追加" />
+            <v-text-field v-model="schedule.description" placeholder="説明を追加" />
           </v-col>
         </v-row>
         <v-row align="end" dense>
@@ -63,6 +63,7 @@
 <script lang="ts">
 import { Vue, Component, Prop, Emit } from 'vue-property-decorator'
 import FormDatePicher from '@/components/Calendar/AddSchedule/FormDatePicher.vue'
+import { Schedule } from '@/types/schedule.type'
 
 @Component({
   components: {
@@ -71,8 +72,8 @@ import FormDatePicher from '@/components/Calendar/AddSchedule/FormDatePicher.vue
 })
 export default class FormSchedule extends Vue {
   @Prop() date!: number[]
-  @Prop({ default: '' }) title!: string
-  @Prop({ default: '' }) description!: string
+  @Prop() propSchedule!: Schedule
+  private schedule = this.propSchedule
   private useTime = false
   private times = [...Array(96).keys()].map(
     i => `${('00' + Math.floor((i + 1) / 4)).slice(-2)}:${('00' + (((i + 1) * 15) % 60)).slice(-2)}`
