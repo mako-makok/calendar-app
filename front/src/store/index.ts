@@ -1,11 +1,11 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import { ScheduleState } from './modules/schedule'
+import { CalendarState } from '@/types/schedule.type'
 
 Vue.use(Vuex)
 
 export interface RootState {
-  schedule: ScheduleState
+  calendar: CalendarState
 }
 
 export default new Vuex.Store<RootState>({})

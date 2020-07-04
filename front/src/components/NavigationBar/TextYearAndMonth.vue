@@ -6,12 +6,12 @@
 
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
-import { ScheduleModule } from '@/store/modules/schedule'
+import { CalendarModule } from '@/store/modules/calendar'
 
 @Component
 export default class TextYearAndMonth extends Vue {
   getDate() {
-    return ScheduleModule.currentDate
+    return CalendarModule.currentDate
   }
 }
 </script>

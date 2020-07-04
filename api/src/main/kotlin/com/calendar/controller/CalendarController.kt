@@ -18,8 +18,8 @@ class CalendarController {
     lateinit var scheduleService: ScheduleService
 
     @GetMapping
-    fun index(): List<Schedule>
-            = scheduleService.selectAll()
+    fun index(): Map<String, List<Schedule>>
+            = mapOf("schedules" to scheduleService.selectAll())
 
     @PostMapping("register")
     @ResponseStatus(HttpStatus.CREATED)
@@ -36,8 +36,8 @@ class CalendarController {
     }
 
     @PostMapping("detail/{id}")
-    fun detail(@PathVariable id: Int): Schedule
-            = scheduleService.findById(id)
+    fun detail(@PathVariable id: Int): Map<String, Schedule>
+            = mapOf("schedule" to scheduleService.findById(id))
 
     @PutMapping("update/{id}")
     fun update(
