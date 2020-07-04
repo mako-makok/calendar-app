@@ -1,12 +1,15 @@
 <template>
-  <div class="home">
-    <div id="nav1">
-      <NavigationBar></NavigationBar>
+  <v-app>
+    <div class="home">
+      <div id="nav1">
+        <NavigationBar></NavigationBar>
+      </div>
+      <div>
+        <CalendarBoard></CalendarBoard>
+      </div>
     </div>
-    <div>
-      <CalendarBoard></CalendarBoard>
-    </div>
-  </div>
+    ]
+  </v-app>
 </template>
 
 <script lang="ts">

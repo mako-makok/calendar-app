@@ -5,44 +5,27 @@
         <v-row no-gutters :key="i">
           <template v-for="j in 7">
             <v-col :key="j">
-              <CardForDay
-                :date="dispDates[(i - 1) * 7 + j - 1]"
-                :day="days[j - 1]"
-                @start-registration="openDialog($event)"
-              />
+              <CardForDay :date="dispDates[(i - 1) * 7 + j - 1]" :day="days[j - 1]" />
             </v-col>
           </template>
         </v-row>
       </template>
     </v-container>
-    <DialogRegisterSchedule ref="dialogRegisterSchedule" />
   </div>
 </template>
 
 <script lang="ts">
-import { Vue, Component, Ref } from 'vue-property-decorator'
+import { Vue, Component } from 'vue-property-decorator'
 import CardForDay from '@/components/Calendar/CardForDay.vue'
-import DialogRegisterSchedule from '@/components/AddSchedule/DialogRegisterSchedule.vue'
 import { CalendarModule } from '@/store/modules/calendar'
 
 @Component({
   components: {
-    CardForDay,
-    DialogRegisterSchedule
+    CardForDay
   }
 })
 export default class CalendarBoard extends Vue {
   private days = ['日', '月', '火', '水', '木', '金', '土']
-
-  @Ref() dialogRegisterSchedule!: DialogRegisterSchedule
-
-  private openDialog(date: number) {
-    this.dialogRegisterSchedule.open(
-      CalendarModule.currentDate.getFullYear(),
-      CalendarModule.currentDate.getMonth(),
-      date
-    )
-  }
 
   get dispDates(): number[][] {
     const currentDate = CalendarModule.currentDate
