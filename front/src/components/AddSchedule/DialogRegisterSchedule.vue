@@ -17,7 +17,7 @@
                 </v-icon>
               </v-col>
               <v-col>
-                <FormDatePicher :propDate="startDate.toISOString().substr(0, 10)" />
+                <FormDatePicher :propDate="startDateToArray" />
               </v-col>
               <v-col v-if="useTime" :cols="2">
                 <v-combobox v-model="startTime" :items="times" />
@@ -31,7 +31,7 @@
                 <v-combobox v-model="endTime" :items="times" />
               </v-col>
               <v-col>
-                <FormDatePicher :propDate="endDate.toISOString().substr(0, 10)" />
+                <FormDatePicher :propDate="endDateToArray" />
               </v-col>
               <v-col v-if="!useTime" :cols="3" align-self="center">
                 <v-btn small text outlined width="80%" @click="useTime = true">
@@ -99,6 +99,14 @@ export default class DialogRegisterSchedule extends Vue {
   private close() {
     this.dialog = false
     this.useTime = false
+  }
+
+  get startDateToArray() {
+    return [this.startDate.getFullYear(), this.startDate.getMonth() + 1, this.startDate.getDate()]
+  }
+
+  get endDateToArray() {
+    return [this.endDate.getFullYear(), this.endDate.getMonth() + 1, this.endDate.getDate()]
   }
 }
 </script>

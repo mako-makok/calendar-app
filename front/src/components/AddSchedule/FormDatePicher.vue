@@ -33,7 +33,7 @@ import { Vue, Component, Prop } from 'vue-property-decorator'
 @Component
 export default class FormDatePiicker extends Vue {
   @Prop({ required: true })
-  private propDate!: string
+  private propDate!: number[]
   private date = this.propDate
   private menu = false
 
@@ -54,7 +54,7 @@ export default class FormDatePiicker extends Vue {
   }
 
   private get formatedDate() {
-    return this.formatDate(this.propDate)
+    return this.formatDate(this.propDate.join('-'))
   }
 }
 </script>
