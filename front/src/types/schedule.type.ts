@@ -10,6 +10,6 @@ export interface Schedules {
 export interface Schedule {
   title: string
   description: string
-  startDate: Date
-  endDate: Date
+  dateStart: number[]
+  dateEnd: Date
 }
